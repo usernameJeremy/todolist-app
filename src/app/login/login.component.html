@@ -1,1 +1,20 @@
-<p>login works!</p>
+<div class="login-form-container">
+    <form class="login-form" #loginForm="ngForm" (ngSubmit)="onLoginSubmit(loginForm)">
+        <h1>Inloggen</h1>
+        <section>
+            <label for="email">E-mail</label>
+            <input type="text" id="email" name="email" [(ngModel)]="Form.email" required >
+        </section>
+
+        <section>
+            <label for="password">Wachtwoord</label>
+            <input type="password" id="password" name="password" required [(ngModel)]="Form.password">
+            <p class="error-message" *ngIf="showErrorMessage">Combinatie van emailadres en wachtwoord is onjuist</p>
+        </section>
+
+        <button type="submit">Inloggen</button>
+        <p>Heb je nog geen account? Registreer je dan eerst.</p>
+    </form>
+
+    
+</div>
