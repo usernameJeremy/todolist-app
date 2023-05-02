@@ -1,1 +1,24 @@
-<p>registrate works!</p>
+<div class="registrate-form-container">
+    <form class="registrate-form" (ngSubmit)="OnRegistrate()">
+        <h1>Register</h1>
+        <section>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" [(ngModel)]="form.name" required >
+        </section>
+        
+        <section>
+            <label for="email">E-mail</label>
+            <input type="text" id="email" name="email" [(ngModel)]="form.email" required >
+        </section>
+        <section>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required [(ngModel)]="form.password">
+            <p class="error-message" *ngIf="showErrorMessage">Combination of emailaddress and password is incorrect</p>
+        </section>
+
+        <button type="submit">Register</button>
+        <p>Allready have an account? <a [routerLink]="['/login']">Click here</a> to log in.</p>
+    </form>
+
+    
+</div>

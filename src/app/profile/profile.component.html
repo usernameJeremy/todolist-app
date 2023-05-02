@@ -1,1 +1,46 @@
-<p>profile works!</p>
+<div class="profile-container">
+
+    <div class="left-panel" *ngIf="user">
+        <div>
+            <h1>User Information</h1>
+        </div>
+        <div>
+            <strong>Name:</strong>
+            <h2>{{ user.name }}</h2>
+        </div>
+        <div>
+            <strong>E-mail:</strong>
+            <h2>{{ user.email }}</h2>
+        </div>
+        <div><button>Create new To-do list</button>
+            <!-- <form>
+                <section>
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" [(ngModel)]="todoList.title" required>
+                </section>
+
+                <section>
+                    <label for="description">Description</label>
+                    <input type="text" id="description" name="description" [(ngModel)]="todoList.description" required>
+                </section>
+            </form> -->
+        </div>
+    </div>
+
+
+    <div class="right-panel">
+        <h1>My To-Do Lists:</h1>
+        <div class="card" *ngFor="let item of items" (click)="onCardClick($event, item)">
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.description }}</p>
+            <div class="card-expanded" *ngIf=" selectedCard === item">
+                <h2>{{ item.title }}</h2>
+                <p>{{ item.description }}</p>
+                <button>Delete</button><button>Edit</button>
+                <div class="close-button" (click)="onCloseClick()">Close</div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

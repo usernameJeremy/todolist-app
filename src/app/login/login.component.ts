@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  Form = {
+  form = {
     email: '',
     password: ''
   };
@@ -23,9 +23,9 @@ export class LoginComponent {
      private router: Router,
       ) {}
 
-  onLoginSubmit(loginForm: NgForm) {
+  onLoginSubmit() {
    
-     this.loginService.login(this.Form).subscribe({
+     this.loginService.login(this.form).subscribe({
       next: (response) => {
         console.log(response);
         
